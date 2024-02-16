@@ -1,0 +1,17 @@
+.optionsList{
+    display: flex;
+    gap: 6px;
+}
+
+.optionsList button{
+    position: relative;
+    height: 32px;
+    width: 70px;
+    border-radius: 6px;
+    border: none;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
+    box-shadow: 2px 2px #000;
+}
+
