@@ -18,6 +18,7 @@ const App = () => {
   const [feedback, setFeedback] = useState(getFeedback);
   const { good, neutral, bad } = feedback;
   const totalFeedback = good + neutral + bad;
+  const positive = Math.round(((good + neutral) / totalFeedback) * 100);
 
   useEffect(() => {
     window.localStorage.setItem(storageFeedbackKey, JSON.stringify(feedback));
@@ -40,8 +41,9 @@ const App = () => {
   return (
     <>
       <Description />
-      <Options value={totalFeedback} onUpdate={updateFeedback} />
-      {!totalFeedback ? <Notification>No feedback yet</Notification> : <Feedback feedback={feedback} />}
+      <Options totalFeedback={totalFeedback} onUpdate={updateFeedback} />
+      {!totalFeedback ? <Notification>No feedback yet</Notification> : <Feedback
+        feedback={feedback} totalFeedback={totalFeedback} positive={positive} />}
     </>
   )
 }
